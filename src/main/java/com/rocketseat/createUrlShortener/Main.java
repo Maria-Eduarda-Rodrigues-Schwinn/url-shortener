@@ -1,12 +1,11 @@
 package com.rocketseat.createUrlShortener;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
-
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public class Main implements RequestHandler<Map<String, Object>, Map<String, String>> {
 
@@ -16,7 +15,7 @@ public class Main implements RequestHandler<Map<String, Object>, Map<String, Str
     public Map<String, String> handleRequest(Map<String, Object> input, Context context) {
         var body = (String) input.get("body");
 
-       Map<String, String> bodyMap;
+        Map<String, String> bodyMap;
 
         try {
             bodyMap = objectMapper.readValue(body, Map.class);
@@ -35,4 +34,3 @@ public class Main implements RequestHandler<Map<String, Object>, Map<String, Str
         return response;
     }
 }
-
