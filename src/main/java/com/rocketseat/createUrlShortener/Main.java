@@ -1,4 +1,4 @@
-package com.rocketseat.createUrlShortner;
+package com.rocketseat.createUrlShortener;
 
 import java.util.HashMap;
 import java.util.Map;
