@@ -39,7 +39,7 @@ public class Main implements RequestHandler<Map<String, Object>, Map<String, Str
         try {
             var urlDataJson = objectMapper.writeValueAsString(urlData);
 
-            PutObjectRequest request =
+            var request =
                     PutObjectRequest.builder()
                             .bucket("url-shortener-lambda-data")
                             .key(shortUrlCode + ".json")
@@ -50,7 +50,7 @@ public class Main implements RequestHandler<Map<String, Object>, Map<String, Str
             throw new RuntimeException("Error saving URL data to S3: " + e.getMessage(), e);
         }
 
-        Map<String, String> response = new HashMap<>();
+        var response = new HashMap<String, String>();
         response.put("code", shortUrlCode);
 
         return response;
